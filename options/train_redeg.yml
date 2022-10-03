@@ -194,7 +194,7 @@ logger:
   print_freq: 10
   save_checkpoint_freq: !!float 500
   use_tb_logger: true
-  visual_freq: 10
+  visual_freq: 20
   wandb:
     project: ~
     resume_id: ~
