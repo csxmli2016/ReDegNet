@@ -17,7 +17,6 @@ def main():
     testset_Ls = ['lqs']#['whole', 'blurry_faces'] # set path of each sub-set
     model_path = '../experiments/weights/net_f2n_init.pth' #this model is specifically fine-tuned for Figure 1
 
-    t = time.strftime("%m-%d_%H-%M", time.localtime()) 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     BGModel = F2NESRGAN(CheckPointPath=model_path, device=device)
     
@@ -33,7 +32,7 @@ def main():
     for testset_L in testset_Ls:
         print('################################## Handling {:s} ##################################'.format(testset_L))
         L_path = os.path.join(testsets, testset_L)
-        Save_path = os.path.join(testsets, testset_L+'_'+t) # save path
+        Save_path = os.path.join(testsets, testset_L) # save path
         util.mkdir(Save_path)
         print('{:>16s} : {:s}'.format('Input Path', L_path))
         print('{:>16s} : {:s}'.format('Output Path', Save_path))
