@@ -32,7 +32,7 @@ def main():
     for testset_L in testset_Ls:
         print('################################## Handling {:s} ##################################'.format(testset_L))
         L_path = os.path.join(testsets, testset_L)
-        Save_path = os.path.join(testsets, testset_L) # save path
+        Save_path = os.path.join(testsets, testset_L+'_Results') # save path
         util.mkdir(Save_path)
         print('{:>16s} : {:s}'.format('Input Path', L_path))
         print('{:>16s} : {:s}'.format('Output Path', Save_path))
