@@ -13,8 +13,8 @@ def main():
     #################################################
     ############### parameter settings ##############
     #################################################
-    testsets = './testsets/'#
-    testset_Ls = ['lqs']#['whole', 'blurry_faces'] # set path of each sub-set
+    testsets = './testsets/'
+    testset_Ls = ['lqs']
     model_path = '../experiments/weights/net_f2n_init.pth' #this model is specifically fine-tuned for Figure 1
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
