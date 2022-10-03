@@ -1,5 +1,5 @@
 torch>=1.7
-numpy<1.21
+numpy
 matplotlib
 opencv-python
 torchvision
