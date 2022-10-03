@@ -1,0 +1,10 @@
+./TrainData/DF2K_HQPatches/002146_00001_04.png
+./TrainData/DF2K_HQPatches/001057_00020_06.png
+./TrainData/DF2K_HQPatches/000446_00010_10.png
+./TrainData/DF2K_HQPatches/000591_00012_10.png
+./TrainData/DF2K_HQPatches/000498_00006_06.png
+./TrainData/DF2K_HQPatches/000122_00010_10.png
+./TrainData/DF2K_HQPatches/0075_00014_10.png
+./TrainData/DF2K_HQPatches/000590_00006_06.png
+./TrainData/DF2K_HQPatches/001803_00001_08.png
+./TrainData/DF2K_HQPatches/001983_00011_10.png

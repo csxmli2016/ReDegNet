@@ -1,0 +1,10 @@
+./TrainData/FFHQ512/00001.png
+./TrainData/FFHQ512/00016.png
+./TrainData/FFHQ512/00018.png
+./TrainData/FFHQ512/00045.png
+./TrainData/FFHQ512/00055.png
+./TrainData/FFHQ512/00056.png
+./TrainData/FFHQ512/00059.png
+./TrainData/FFHQ512/00098.png
+./TrainData/FFHQ512/00113.png
+./TrainData/FFHQ512/00114.png

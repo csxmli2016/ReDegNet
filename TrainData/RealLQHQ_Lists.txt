@@ -1,0 +1,10 @@
+./TrainData/RealFacePairs/LQ/000001.png	./TrainData/RealFacePairs/PseudoHQ/000001.png
+./TrainData/RealFacePairs/LQ/000002.png	./TrainData/RealFacePairs/PseudoHQ/000002.png
+./TrainData/RealFacePairs/LQ/000003.png	./TrainData/RealFacePairs/PseudoHQ/000003.png
+./TrainData/RealFacePairs/LQ/000004.png	./TrainData/RealFacePairs/PseudoHQ/000004.png
+./TrainData/RealFacePairs/LQ/000005.png	./TrainData/RealFacePairs/PseudoHQ/000005.png
+./TrainData/RealFacePairs/LQ/000006.png	./TrainData/RealFacePairs/PseudoHQ/000006.png
+./TrainData/RealFacePairs/LQ/000007.png	./TrainData/RealFacePairs/PseudoHQ/000007.png
+./TrainData/RealFacePairs/LQ/000008.png	./TrainData/RealFacePairs/PseudoHQ/000008.png
+./TrainData/RealFacePairs/LQ/000009.png	./TrainData/RealFacePairs/PseudoHQ/000009.png
+./TrainData/RealFacePairs/LQ/000010.png	./TrainData/RealFacePairs/PseudoHQ/000010.png

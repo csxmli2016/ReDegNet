@@ -1,0 +1,207 @@
+# general settings
+name: train_ReDeg
+model_type: ReDegModel
+num_gpu: auto  #
+print_net: False
+#manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: ReDegNet
+    type: ReDegDegradationDataset #
+    dataroot: ./TrainData/DF2K_HQPatches # 400*400
+    df2kpath: ./TrainData/DF2K_HQPatches_Lists.txt # 400*400
+    realpath: ./TrainData/RealLQHQ_Lists.txt # 512*512
+    ffhqpath: ./TrainData/FFHQ512_Lists.txt # 512*512
+    io_backend:
+      type: disk
+    mean: [0.5, 0.5, 0.5]
+    std: [0.5, 0.5, 0.5]
+    out_size: 256
+    # data loader
+    use_shuffle: false
+    num_worker_per_gpu: 4
+    batch_size_per_gpu: 12 
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+# network structures
+network_f2n:
+  type: RRDBNet
+  num_in_ch: 3
+  num_out_ch: 3
+  num_feat: 64
+  num_block: 23
+  num_grow_ch: 32
+
+network_f2nD:
+  type: UNetDiscriminatorSN
+  num_in_ch: 3
+  num_feat: 64
+  skip_connection: True
+
+network_deg:
+  type: DegNet
+  size: 256
+
+network_synE:
+  type: SynNetEncoder
+  size: 256
+  channel_multiplier: 1
+
+network_synG:
+  type: SynNetGenerator
+  size: 256
+  style_dim: 512
+  n_mlp: 8
+  channel_multiplier: 1
+
+network_synD:
+  type: ReDegSNDiscriminator
+  scale: 256
+
+# path
+path:
+  pretrain_network_deg:  ./experiments/weights/net_deg_init.pth
+  pretrain_network_synE: ./experiments/weights/net_synE_init.pth
+  pretrain_network_synG: ./experiments/weights/net_synG_init.pth 
+  pretrain_network_synD: ./experiments/weights/net_synD_init.pth
+  pretrain_network_f2n: ./experiments/weights/net_f2n_init.pth
+  pretrain_network_f2nD: ./experiments/weights/net_f2nD_init.pth
+  resume_state: ~
+
+
+# training settings
+train:
+  optim_f2n:
+    type: Adam
+    lr: !!float 1e-4
+  optim_f2nD:
+    type: Adam
+    lr: !!float 1e-4
+  optim_synE:
+    type: Adam
+    lr: !!float 1e-4
+  optim_synG:
+    type: Adam
+    lr: !!float 1e-4
+  optim_synD:
+    type: Adam
+    lr: !!float 1e-4
+  optim_deg:
+    type: Adam
+    lr: !!float 1e-4
+
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [600000, 700000]
+    gamma: 0.5
+
+  total_iter: 160000
+  warmup_iter: -1  # no warm up
+
+  # loss for f2n
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+  # perceptual loss (content and style losses)
+  perceptual_opt:
+    type: PerceptualLoss
+    layer_weights:
+      'conv1_2': 0.1
+      'conv2_2': 0.1
+      'conv3_4': 1
+      'conv4_4': 1
+      'conv5_4': 1
+    vgg_type: vgg19
+    use_input_norm: true
+    perceptual_weight: !!float 1.0
+    style_weight: 0.1
+    range_norm: false
+    criterion: l1
+  # gan loss
+  gan_opt:
+    type: GANLoss
+    gan_type: vanilla
+    real_label_val: 1.0
+    fake_label_val: 0.0
+    loss_weight: !!float 1e-1
+  
+  # loss for SynNet
+  pixel_syn_opt:
+    type: L1Loss
+    loss_weight: !!float 10 
+    reduction: mean
+  syn_samedeg_lambda: !!float 10
+  contrastive_lambda: !!float 4
+  syn_pixel_lambda: !!float 1.0
+
+  perceptual_syn_opt:
+    type: PerceptualLoss
+    layer_weights:
+      # before relu
+      'conv1_2': 2
+      'conv2_2': 1.2
+      'conv3_4': 0.6
+      'conv4_4': 0.2
+      'conv5_4': 0.1
+    vgg_type: vgg19
+    use_input_norm: true
+    perceptual_weight: !!float 0.2 ##
+    style_weight: !!float 160 ##
+    range_norm: false
+    criterion: l1
+  triplet_syn_opt:
+    type: TripletLoss
+    margin: !!float 1.0
+    reduction: mean
+    loss_weight: !!float 5.0
+  # gan loss
+  gan_syn_opt:
+    type: GANLoss
+    gan_type: hinge
+    real_label_val: 1.0
+    fake_label_val: 0.0
+    loss_weight: !!float 1e-2
+  
+  L1_opt:
+    type: L1Loss
+    loss_weight: 1
+    reduction: mean
+
+  net_d_iters: 1
+  net_d_init_iters: 0
+  net_d_reg_every: 16
+
+  train_with_otherDegs: False #True is suggested for better generalization ability, see line 438 in redeg_model
+
+# validation settings
+val:
+  val_freq: !!float 5e3
+  save_img: true
+
+  metrics:
+    psnr: # metric name
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 10
+  save_checkpoint_freq: !!float 500
+  use_tb_logger: true
+  visual_freq: 10
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+
+find_unused_parameters: true
