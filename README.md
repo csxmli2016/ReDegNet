@@ -48,13 +48,13 @@ tensorboard --logdir tb_logger --port 7007
 ```
 
 ## Quick Inference of F2N-ESRGAN 
-> #### we prepare two models, one is specifically fine-tuned for Figure 1 but may easily have artifacts on other test images, and the other is stable and not overfitted to this degradation.
+> #### we prepare two models, one is specifically fine-tuned for Figure 1 but may easily have artifacts on other test images, and the other is stable and not overfitted to this degradation (see the comments in test_restoration.py).
 ```
 cd CleanTest
 CUDA_VISIBLE_DEVICES=0 python test_restoration.py 
 ```
 
-## Some Restoration Results
+### Some Restoration Results
 <div style='font-size:0'>
 <img src='./CleanTest/testsets/lqs/old_002.jpeg' width=48%> <img src='./GithubImgs/old_002_F2NESRGAN.png' width=48%>
 <img src='./CleanTest/testsets/lqs/old_003.jpeg' width=48%> <img src='./GithubImgs/old_003_F2NESRGAN.png' width=48%>
