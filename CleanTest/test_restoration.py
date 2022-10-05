@@ -17,8 +17,8 @@ def main():
     testset_Ls = ['lqs']
     model_path = '../experiments/weights/net_f2n_g.pth' 
     '''
-    net_f2n_init.pth is finetuned with degradation from Figure 1. So it performs better on Figure 1 but may have obvious artifacts on other old images.
-    net_f2n_g.pth is the stable version that contains little artifacts. (Preffered)
+    net_f2n_init.pth is specifically finetuned with degradation from Figure 1. So it performs better on Figure 1 but may have obvious artifacts on other old images.
+    net_f2n_g.pth is the stable version that is not obviously overfitted to the degradation in Figure 1. (Preffered)
     '''
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
