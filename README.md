@@ -26,7 +26,7 @@ python setup.py develop
 
 ## Pre-train Models
 Download from the following url and put them into ./experiments/weights/
-- [BaiduNetDisk](https://pan.baidu.com/s/1ooHRMKSSvpFCBT9y179RSg?pwd=fr6d)
+- [BaiduNetDisk](https://pan.baidu.com/s/1TZrB5bX-Ly_ovL8YvgHBcg?pwd=xat2)
 or
 - [GoogleDrive](https://drive.google.com/drive/folders/1J3yUjhTrVYMMvb3O3BKqtPS6E7FotPqc?usp=sharing)
 
@@ -47,7 +47,8 @@ See the training results through tensorboard
 tensorboard --logdir tb_logger --port 7007
 ```
 
-## Quick Inference of F2N-ESRGAN
+## Quick Inference of F2N-ESRGAN 
+> #### see the details in test_restoration.py
 ```
 cd CleanTest
 CUDA_VISIBLE_DEVICES=0 python test_restoration.py 
