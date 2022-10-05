@@ -54,6 +54,13 @@ cd CleanTest
 CUDA_VISIBLE_DEVICES=0 python test_restoration.py 
 ```
 
+## Some Restoration Results
+<div style='font-size:0'>
+<img src='./CleanTest/testsets/lqs/old_002.jpeg' width=48%> <img src='./GithubImgs/old_002_F2NESRGAN.png' width=48%>
+<img src='./CleanTest/testsets/lqs/old_003.jpeg' width=48%> <img src='./GithubImgs/old_003_F2NESRGAN.png' width=48%>
+<img src='./CleanTest/testsets/lqs/old_004.jpeg' width=48%> <img src='./GithubImgs/old_004_F2NESRGAN.png' width=48%>
+</div>
+
 ## Synthetic Degradation Examples of ReDegNet
 ```
 cd CleanTest
