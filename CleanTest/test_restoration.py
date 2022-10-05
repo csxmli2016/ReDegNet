@@ -15,7 +15,11 @@ def main():
     #################################################
     testsets = './testsets/'
     testset_Ls = ['lqs']
-    model_path = '../experiments/weights/net_f2n_init.pth' #this model is specifically fine-tuned for Figure 1
+    model_path = '../experiments/weights/net_f2n_g.pth' 
+    '''
+    net_f2n_init.pth is finetuned with degradation from Figure 1. So it performs better on Figure 1 but may have obvious artifacts on other old images.
+    net_f2n_g.pth is the stable version that contains little artifacts. (Preffered)
+    '''
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     BGModel = F2NESRGAN(CheckPointPath=model_path, device=device)
