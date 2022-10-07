@@ -56,6 +56,8 @@ CUDA_VISIBLE_DEVICES=0 python test_restoration.py
 
 ### Some Restoration Results
 <div style='font-size:0'>
+<img src='./CleanTest/testsets/lqs/img007.png'   width=48%> <img src='./GithubImgs/img007_F2NESRGAN.png' width=48%>
+<img src='./CleanTest/testsets/lqs/img008.png'   width=48%> <img src='./GithubImgs/img008_F2NESRGAN.png' width=48%>
 <img src='./CleanTest/testsets/lqs/old_005.jpeg' width=48%> <img src='./GithubImgs/old_005_F2NESRGAN.png' width=48%>
 <img src='./CleanTest/testsets/lqs/old_003.jpeg' width=48%> <img src='./GithubImgs/old_003_F2NESRGAN.png' width=48%>
 <img src='./CleanTest/testsets/lqs/old_004.jpeg' width=48%> <img src='./GithubImgs/old_004_F2NESRGAN.png' width=48%>
