@@ -2,9 +2,9 @@
 
 [Xiaoming Li](https://csxmli2016.github.io/), [Chaofeng Chen](https://chaofengc.github.io), Xianhui Lin, [Wangmeng Zuo](https://scholar.google.com/citations?hl=en&user=rUOpCEYAAAAJ&view_op=list_works), [Lei Zhang](https://scholar.google.com/citations?user=tAK5l1IAAAAJ)
 
-[![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/pdf/2210.00752.pdf)
-<a href="https://colab.research.google.com/drive/1V2M-3YLOF7bHMyZ1nfdwU61XGDepL1I9?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a> 
-[![LICENSE](https://img.shields.io/badge/LICENSE-CC%20BY--NC--SA%204.0-green)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+<a href='https://arxiv.org/pdf/2210.00752.pdf' target='_blank'>![arXiv](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)</a>
+<a href="https://colab.research.google.com/drive/1DbpzonpYGYhemYicrsayPSyDrzcYfoOX?usp=sharing" target='_blank'><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="google colab logo"></a> 
+<a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'>![LICENSE](https://img.shields.io/badge/LICENSE-CC%20BY--NC--SA%204.0-green)</a>
 
 <p align="justify">How to design proper training pairs is critical for super-resolving real-world low-quality (LQ) images, which suffers from the difficulties in either acquiring paired ground-truth high-quality (HQ) images or synthesizing photo-realistic degraded LQ observations. Recent works mainly focus on modeling the degradation with handcrafted or estimated degradation parameters, which are however incapable to model complicated real-world degradation types, resulting in limited quality improvement. Notably, LQ face images, which may have the same degradation process as natural images (see the following Figure), can be robustly restored with photo-realistic textures by exploiting their strong structural priors. This motivates us to use the real-world LQ face images and their restored HQ counterparts to model the complex real-world degradation (namely ReDegNet), and then transfer it to HQ natural images to synthesize their realistic LQ counterparts. By taking these paired HQ-LQ face images as inputs to explicitly predict the degradation-aware and content-independent representations, we could control the degraded image generation, and subsequently transfer these degradation representations from face to natural images to synthesize the degraded LQ natural images. </p>
 
