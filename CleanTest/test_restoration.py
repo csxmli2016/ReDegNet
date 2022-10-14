@@ -63,6 +63,6 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input', type=str, default='lq', help='Input image or folder')
+    parser.add_argument('-i', '--input', type=str, default='lqs', help='Input image or folder')
     args = parser.parse_args()
     main(args)
